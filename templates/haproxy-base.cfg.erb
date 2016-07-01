@@ -9,6 +9,26 @@ global
 <% end -%>
 <% end -%>
 
+# HTTP Defaults
+defaults HTTP
+   # refer to the global log definition
+   log global
+   # disable logging of normal, successful connections
+   #option dontlog-normal
+   mode http
+   # Enable logging of HTTP request, session state and timers
+   option httplog
+
+# TCP Defaults
+defaults TCP
+   # refer to the global log definition
+   log global
+   # disable logging of normal, successful connections
+   #option dontlog-normal
+   mode tcp
+   # Enable advanced logging of TCP connections with session state and timers
+   option tcplog
+
 defaults
 <% @defaults_options.sort.each do |key,val| -%>
 <% if val.is_a?(Array) -%>
